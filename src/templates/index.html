@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<head>
+    <title>OpenAI chatbot</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}" />
+    <link rel="icon" href="{{ url_for('static', filename='chat.png') }}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <img src="{{ url_for('static', filename='chat.png') }}" class="img" />  
+  <h3>This is a chatbot created using OpenAI's gpt3.</h3>
+
+  <div id="chatbox">
+    <p class="botText"><span>Hi there! I am your virtual assistant.</span></p>
+  </div>
+  
+  <form id = "userInput">
+    <input id = "inputText" type="text" name="msg" placeholder="Type your message here" required />
+    <button>Send</button>
+  </form>
+
+  <script>
+
+    const btn = document.querySelector('button');
+	  btn.addEventListener('click', getBotResponse);
+
+    function getBotResponse() {
+        var rawText = $("#inputText").val();
+        var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
+        $("#inputText").val("");
+        $("#chatbox").append(userHtml);
+        document.getElementById('userInput').scrollIntoView({ block: 'start', behavior: 'smooth' });
+        $.get("/get", { msg: rawText }).done(function (data) {
+          var botHtml = '<p class="botText"><span>' + data + '</span></p>';
+          $("#chatbox").append(botHtml);
+          document.getElementById('userInput').scrollIntoView({ block: 'start', behavior: 'smooth' });
+        });
+      }
+
+  </script>
+
+</body>

@@ -1,0 +1,97 @@
+body{
+    font-family: 'Times New Roman';
+    background-color: rgba(255, 255, 255, 0.911);
+    align-items: center;
+    flex-direction: column;
+  }
+h3{
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-size: 25px;
+}
+.icon{
+  width: 15px;
+}
+img{
+  width: 50px;
+  padding-top: 5px;
+  padding-left: 48.5%;
+}
+::placeholder {
+  color: rgb(114, 101, 101);
+}
+form {
+  display:inline;
+  flex-direction: column;
+  width: 300px;
+  padding-left: 44%;
+}
+
+#chatbox {
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  margin-top: 50px;
+}
+
+#userInput {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 50px;
+  border-radius: 6px
+}
+
+#inputText{
+  padding: 6px 7px;
+  border-radius: 7px;
+  font-family: 'Times New Roman';
+  font-size: 16px;
+  width: 16%;
+}
+
+#inputButton{
+  padding: 3px 3px;
+  border-radius: 7px;
+  font-family: 'Times New Roman';
+  font-size: 15px;
+}
+
+.userText{
+  color: rgb(255, 255, 255);
+  font-family:'Times New Roman';
+  font-size: 17px;
+  text-align: right;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.userText span {
+  background-color: #3d63df;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+.botText {
+  color: white;
+  font-family: 'Times New Roman';
+  font-size: 17px;
+  text-align: left;
+  line-height: 30px;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.botText span {
+  background-color: #4873e9;
+  padding: 5px;
+  border-radius: 7px;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.result {
+  margin-top: 35px;
+}
