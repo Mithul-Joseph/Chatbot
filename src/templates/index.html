@@ -15,10 +15,16 @@
     <p class="botText"><span>Hi there! I am your virtual assistant.</span></p>
   </div>
   
-  <form id = "userInput">
-    <input id = "inputText" type="text" name="msg" placeholder="Type your message here" required />
+  <!-- <form id = "userInput">
+    <input id = "inputText" type="text" name="msg" placeholder="Type your message here" required/>
     <button>Send</button>
   </form>
+   -->
+  <div id="userInput">
+    <input id="inputText" type="text" name="msg" placeholder="Type you message here">
+    <!-- <input id="buttonInput" type="submit" value="Send"> -->
+    <button>Send</button>
+  </div>
 
   <script>
 
@@ -37,6 +43,12 @@
           document.getElementById('userInput').scrollIntoView({ block: 'start', behavior: 'smooth' });
         });
       }
+
+    $("#inputText").keypress(function (e) {
+      if ((e.which == 13) && document.getElementById("inputText").value != "") {
+        getBotResponse();
+      }
+    });
 
   </script>
 

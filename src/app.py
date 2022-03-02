@@ -3,7 +3,7 @@ import openai
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
-openai.api_key = 'YOUR_OPENAI_API_KEY'
+openai.api_key = 'YOUR_API_KEY'
 
 #giving a start prompt for the model.
 starter_prompt = """"The following is a friendly conversation between a human and an AI assistant. 
@@ -23,10 +23,13 @@ def bot_response():
     userText = request.args.get('msg')
     text = add_prompt(userText)
     response = openai.Completion.create(
-    engine="text-davinci-001",
+    engine="text-ada-001",
     prompt=text,
     temperature=0.6,
-    max_tokens = 50
+    top_p=0.9,
+    frequency_penalty=0.6,
+    max_tokens = 50,
+    stop = ["Human:"]
     )
     global starter_prompt
     starter_prompt+=response.choices[0].text
@@ -34,7 +37,7 @@ def bot_response():
 
 def add_prompt(userText):
     global starter_prompt
-    starter_prompt+="\nHu: "+userText+"\nAI: "
+    starter_prompt+="\nHuman: "+userText+"\nAI: "
     return starter_prompt
 
 if __name__ == "__main__":

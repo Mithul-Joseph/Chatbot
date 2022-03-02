@@ -39,7 +39,7 @@ form {
   margin-right: auto;
   width: 50%;
   margin-top: 50px;
-  border-radius: 6px
+  border-radius: 6px;
 }
 
 #inputText{
@@ -47,7 +47,8 @@ form {
   border-radius: 7px;
   font-family: 'Times New Roman';
   font-size: 16px;
-  width: 16%;
+  width: 20%;
+  margin-left: 37%;
 }
 
 #inputButton{
@@ -90,8 +91,4 @@ form {
   width: auto;
   margin-left: auto;
   margin-right: auto;
-}
-
-.result {
-  margin-top: 35px;
 }
